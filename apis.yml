@@ -19,7 +19,7 @@ apis:
     properties:
       - url: https://api.stackexchange.com/docs
         type: Documentation
-      - url: openapistack-exchange-openapi-original.yml
+      - url: openapi/stack-exchange-openapi-original.yml
         type: OpenAPI
     description: >-
       This is the documentation for the v2.3 Stack Exchange API (with both
@@ -48,11 +48,6 @@ common:
     type: Applications
 created: 2023/11/15
 modified: '2024-12-13'
-overlays:
-  - url: overlays/apis-io-search.yml
-    type: APIs.io Search
-  - url: overlays/apis-io-search.yml
-    type: API Evangelist Ratings
 description: >-
   Stack Exchange is a network of question-and-answer websites on topics in
   diverse fields, each site covering a specific topic, where questions, answers,
