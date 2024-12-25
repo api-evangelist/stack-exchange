@@ -12,10 +12,6 @@ apis:
         url: http://stackapps.com/
         email: team+api@stackexchange.com
     humanURL: https://api.stackexchange.com/
-    overlays:
-      - url: >-
-          overlays/https://raw.githubusercontent.com/openapis/api-specs/master/stackexchange/stackexchange-api-v2.2_swagger-v2.0.yaml-openapi-search.yml
-        type: APIs.io Search
     properties:
       - url: https://api.stackexchange.com/docs
         type: Documentation
