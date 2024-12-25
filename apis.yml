@@ -19,7 +19,7 @@ apis:
     properties:
       - url: https://api.stackexchange.com/docs
         type: Documentation
-      - url: properties/stack-exchange-openapi-original.yml
+      - url: openapistack-exchange-openapi-original.yml
         type: OpenAPI
     description: >-
       This is the documentation for the v2.3 Stack Exchange API (with both
