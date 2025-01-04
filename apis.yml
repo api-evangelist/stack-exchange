@@ -6,11 +6,12 @@ apis:
     name: Stack Exchange API
     tags:
       - Featured
-      - ' Answers'
-      - ' Unanswered'
-      - ' Users'
-      - ' Me'
-      - ' History'
+      - '  Answers'
+      - '  Unanswered'
+      - '  Users'
+      - '  Me'
+      - '  History'
+      - Questions
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     contact:
