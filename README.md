@@ -9,12 +9,9 @@ Stack Exchange is a network of question-and-answer websites on topics in diverse
 - **Position:** Consuming 
 - **Access:** 3rd-Party 
 
-## Tags
+## Tags:
 
-- Code
-- Questions
-- Answers
-- Q&A
+ - Code, Questions, Answers, Q&A
 
 ## Timestamps
 
@@ -27,15 +24,18 @@ Stack Exchange is a network of question-and-answer websites on topics in diverse
 This is the documentation for the v2.3 Stack Exchange API (with both authentication and write support). If you have additional questions, or believe you have encountered a bug, don't hesitate to post a question on Stack Apps.
 
 **Human URL:** [https://api.stackexchange.com/](https://api.stackexchange.com/)
+
 **Base URL:** [https://api.example.com](https://api.example.com)
 
-#### Tags
 
+#### Tags:
+
+ - No Tags
 
 #### Properties
 
 - [Documentation](https://api.stackexchange.com/docs)
-- [OpenAPI](properties/stack-exchange-openapi-original.yml)
+- [OpenAPI](openapi/stack-exchange-openapi-original.yml)
 
 ## Common Properties
 
