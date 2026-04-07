@@ -12,7 +12,8 @@ apis:
       - '  Me'
       - '  History'
       - Questions
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     contact:
       - FN: Stack Exchange
@@ -35,7 +36,8 @@ tags:
   - Questions
   - Answers
   - Q&A
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: 
+  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 common:
   - url: https://api.stackexchange.com/docs/authentication
     type: Authentication
@@ -52,10 +54,10 @@ common:
 created: 2023/11/15
 modified: '2026-03-16'
 description: >-
-  Stack Exchange is a network of question-and-answer websites on topics in
-  diverse fields, each site covering a specific topic, where questions, answers,
-  and users are subject to a reputation award process. The reputation system
-  allows the sites to be self-moderating
+  Stack Exchange is a network of question-and-answer websites on topics in diverse
+  fields, each site covering a specific topic, where questions, answers, and users
+  are subject to a reputation award process. The reputation system allows the sites
+  to be self-moderating.
 maintainers:
   - FN: Name
     url: http://example.com
