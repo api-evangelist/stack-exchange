@@ -5,15 +5,14 @@ apis:
   - aid: stack-exchange:stack-exchange-api
     name: Stack Exchange API
     tags:
+      - Answers
       - Featured
-      - '  Answers'
-      - '  Unanswered'
-      - '  Users'
-      - '  Me'
-      - '  History'
+      - History
+      - Me
       - Questions
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Unanswered
+      - Users
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     contact:
       - FN: Stack Exchange
@@ -32,12 +31,11 @@ apis:
       Stack Apps.
 name: Stack Exchange
 tags:
-  - Code
-  - Questions
   - Answers
+  - Code
   - Q&A
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  - Questions
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 common:
   - url: https://api.stackexchange.com/docs/authentication
     type: Authentication
