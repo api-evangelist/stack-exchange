@@ -1,41 +1,28 @@
-# Stack Exchange (stack-exchange)
-Stack Exchange is a network of question-and-answer websites on topics in diverse fields, each site covering a specific topic, where questions, answers, and users are subject to a reputation award process. The reputation system allows the sites to be self-moderating
+# Stack Exchange
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/code/main/_apis/stack-exchange/apis.md)
+Stack Exchange is a network of question-and-answer websites on topics in diverse fields, each site covering a specific topic, where questions, answers, and users are subject to a reputation award process. The network includes over 170 communities including Stack Overflow (programming), Server Fault (system administration), Super User (computing), and many others. The Stack Exchange API v2.3 provides programmatic access to questions, answers, comments, users, tags, badges, and search across all sites in the network.
 
-## Scope
+## Tags
 
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
-
-## Tags:
-
- - Code, Questions, Answers, Q&A
-
-## Timestamps
-
-- **Created:** 2023/11/15 
-- **Modified:** 2024-12-13 
+Answers, Code, Community, Developer Tools, Knowledge Base, Q&A, Questions, Stack Exchange
 
 ## APIs
 
 ### Stack Exchange API
-This is the documentation for the v2.3 Stack Exchange API (with both authentication and write support). If you have additional questions, or believe you have encountered a bug, don't hesitate to post a question on Stack Apps.
+
+The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites. It supports reading and writing questions, answers, comments, tags, users, and badges across all network sites including Stack Overflow. Authentication is via OAuth 2.0 with support for both read and write access. All responses are JSON-encoded and support GZIP compression and field-level filtering.
 
 **Human URL:** [https://api.stackexchange.com/](https://api.stackexchange.com/)
 
-**Base URL:** [https://api.example.com](https://api.example.com)
-
-
-#### Tags:
-
- - No Tags
+**Base URL:** [https://api.stackexchange.com/2.3](https://api.stackexchange.com/2.3)
 
 #### Properties
 
 - [Documentation](https://api.stackexchange.com/docs)
-- [OpenAPI](openapi/stack-exchange-openapi-original.yml)
+- [Terms of Service](https://stackexchange.com/legal/api-terms-of-use)
+- [Rate Limits](https://api.stackexchange.com/docs/throttle)
+- [Sign Up](http://stackapps.com/apps/oauth/register)
+- [OpenAPI](openapi/stack-exchange-openapi.yml)
 
 ## Common Properties
 
@@ -43,12 +30,23 @@ This is the documentation for the v2.3 Stack Exchange API (with both authenticat
 - [Blog](https://stackoverflow.blog/)
 - [Terms of Service](https://stackexchange.com/legal/api-terms-of-use)
 - [Rate Limits](https://api.stackexchange.com/docs/throttle)
-- [Sign UP](http://stackapps.com/apps/oauth/register)
+- [Sign Up](http://stackapps.com/apps/oauth/register)
 - [Applications](http://stackapps.com/apps/oauth)
+- [JSON-LD](json-ld/stack-exchange-context.jsonld)
+- [JSON Schema](json-schema/stack-exchange-question-schema.json)
+- [Vocabulary](vocabulary/stack-exchange-vocabulary.yml)
+- [Spectral Rules](rules/stack-exchange-rules.yml)
 
-## Maintainers
+## Capabilities
 
-**FN:** Name
+### Shared Definitions (`capabilities/shared/`)
 
-**Email:** info@example.com
+| File | Description |
+|------|-------------|
+| [stack-exchange-api.yaml](capabilities/shared/stack-exchange-api.yaml) | Stack Exchange API — questions, search, advanced search, users, tags, and network sites (7 operations) |
 
+### Workflow Capabilities
+
+| File | Description |
+|------|-------------|
+| [knowledge-discovery.yaml](capabilities/knowledge-discovery.yaml) | Stack Exchange Knowledge Discovery — unified workflow for searching questions, finding experts, browsing tags, and exploring the network (7 REST paths, 8 MCP tools) |

@@ -1,0 +1,114 @@
+name: Stack Exchange Vocabulary
+description: >-
+  Vocabulary for the Stack Exchange network of Q&A sites covering community
+  concepts, reputation mechanics, API terminology, and site structure.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: Stack Exchange
+    definition: >-
+      A network of question-and-answer websites covering diverse fields. Each
+      site focuses on a specific topic where questions, answers, and users are
+      subject to a reputation and voting system enabling community moderation.
+
+  - term: Question
+    definition: >-
+      A post submitted by a community member seeking information or solutions
+      on a topic relevant to the site. Questions can be tagged, voted on,
+      answered, and closed.
+
+  - term: Answer
+    definition: >-
+      A post submitted in response to a question, providing a solution or
+      explanation. Answers can be voted up or down, and one answer can be
+      accepted by the question asker.
+
+  - term: Accepted Answer
+    definition: >-
+      An answer that the question's original poster has marked as the best
+      solution. Indicated by a green checkmark. The answerer receives +15
+      reputation; the asker receives +2.
+
+  - term: Comment
+    definition: >-
+      A brief note attached to a question or answer for seeking clarification,
+      leaving constructive criticism, or adding supplemental information.
+      Comments are not for answers.
+
+  - term: Tag
+    definition: >-
+      A keyword or label categorizing questions by topic, technology, or domain.
+      Questions can have up to 5 tags. Tags help users find relevant questions
+      and filter search results.
+
+  - term: Reputation
+    definition: >-
+      A measure of the community's trust in a user, earned through upvotes on
+      questions and answers and other community contributions. Reputation
+      determines access to various site privileges.
+
+  - term: Badge
+    definition: >-
+      Awards given to users for various achievements and contributions. Badges
+      are categorized as bronze (common), silver (moderate), and gold (rare).
+
+  - term: Bounty
+    definition: >-
+      Reputation points offered by a user to attract quality answers to their
+      question. Bounty questions appear in the featured questions list.
+
+  - term: Upvote / Downvote
+    definition: >-
+      Votes cast by community members to indicate question or answer quality.
+      Upvotes increase a post's score and the author's reputation; downvotes
+      decrease them.
+
+  - term: Close
+    definition: >-
+      A moderation action that prevents new answers from being posted on a
+      question. Questions are closed for reasons such as being off-topic,
+      duplicate, needs more detail, or opinion-based.
+
+  - term: Wrapper
+    definition: >-
+      The standard Stack Exchange API response envelope containing an 'items'
+      array, 'has_more' boolean, 'quota_max', 'quota_remaining', and optional
+      'backoff' and 'total' fields.
+
+  - term: Filter
+    definition: >-
+      A Stack Exchange API mechanism for customizing which fields are included
+      in responses. Filters are created via the /filter endpoint and referenced
+      by name in subsequent requests.
+
+  - term: Quota
+    definition: >-
+      The daily limit on API requests. quota_max is the maximum per day;
+      quota_remaining is the count remaining for the current day. Exceeding
+      the quota results in 502 errors.
+
+  - term: Backoff
+    definition: >-
+      A value in seconds that the API includes in responses indicating that
+      clients should wait before making additional requests to avoid throttling.
+
+  - term: Community Wiki
+    definition: >-
+      A mode for questions or answers where reputation is not earned or lost
+      from votes. Multiple community members can edit community wiki posts.
+
+  - term: Moderator
+    definition: >-
+      A community-elected or Stack Exchange staff-appointed user with elevated
+      permissions to handle flags, close questions, suspend users, and perform
+      other moderation actions.
+
+  - term: Meta
+    definition: >-
+      Each Stack Exchange site has an associated meta site for discussing the
+      site itself, including policies, feature requests, and bug reports.
+
+  - term: JSONP
+    definition: >-
+      JSON with Padding. The Stack Exchange API supports JSONP responses via
+      the 'callback' query parameter for cross-origin browser requests.

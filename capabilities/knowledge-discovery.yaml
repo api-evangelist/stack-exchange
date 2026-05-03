@@ -1,0 +1,255 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Stack Exchange Knowledge Discovery"
+  description: >-
+    Workflow capability for discovering and retrieving programming knowledge from
+    the Stack Exchange network. Enables developers, AI agents, and tools to search
+    for questions, find answers, explore tags, and identify experts across Stack
+    Overflow and other Stack Exchange sites.
+  tags:
+    - Stack Exchange
+    - Knowledge Discovery
+    - Q&A
+    - Developer Tools
+    - Search
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      STACK_EXCHANGE_ACCESS_TOKEN: STACK_EXCHANGE_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - import: stack-exchange-api
+      location: ./shared/stack-exchange-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: knowledge-discovery-api
+      description: "Unified REST API for Stack Exchange knowledge discovery and Q&A retrieval."
+      resources:
+        - path: /v1/questions
+          name: questions
+          description: "Browse and filter questions"
+          operations:
+            - method: GET
+              name: get-questions
+              description: "Get questions from Stack Exchange sorted by activity, creation, or votes"
+              call: "stack-exchange-api.get-questions"
+              with:
+                site: "rest.site"
+                tagged: "rest.tagged"
+                sort: "rest.sort"
+                order: "rest.order"
+                page: "rest.page"
+                pagesize: "rest.pagesize"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/unanswered
+          name: unanswered
+          description: "Questions that need answers"
+          operations:
+            - method: GET
+              name: get-unanswered-questions
+              description: "Get unanswered questions to identify knowledge gaps"
+              call: "stack-exchange-api.get-unanswered-questions"
+              with:
+                site: "rest.site"
+                tagged: "rest.tagged"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/search
+          name: search
+          description: "Search questions by keyword"
+          operations:
+            - method: GET
+              name: search-questions
+              description: "Search Stack Exchange questions by title text and tags"
+              call: "stack-exchange-api.search-questions"
+              with:
+                site: "rest.site"
+                intitle: "rest.intitle"
+                tagged: "rest.tagged"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/search/advanced
+          name: advanced-search
+          description: "Advanced question search with multiple filters"
+          operations:
+            - method: GET
+              name: advanced-search
+              description: "Advanced search with acceptance status, body, and view count filters"
+              call: "stack-exchange-api.search-advanced"
+              with:
+                site: "rest.site"
+                q: "rest.q"
+                tagged: "rest.tagged"
+                accepted: "rest.accepted"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/tags
+          name: tags
+          description: "Browse tags"
+          operations:
+            - method: GET
+              name: get-tags
+              description: "Get tags used to categorize questions on Stack Exchange"
+              call: "stack-exchange-api.get-tags"
+              with:
+                site: "rest.site"
+                inname: "rest.inname"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/users
+          name: users
+          description: "Find community experts"
+          operations:
+            - method: GET
+              name: get-users
+              description: "Find Stack Exchange users and community experts"
+              call: "stack-exchange-api.get-users"
+              with:
+                site: "rest.site"
+                inname: "rest.inname"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/sites
+          name: sites
+          description: "Stack Exchange network sites"
+          operations:
+            - method: GET
+              name: get-sites
+              description: "List all Stack Exchange network sites"
+              call: "stack-exchange-api.get-sites"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: knowledge-discovery-mcp
+      transport: http
+      description: "MCP server for AI-assisted knowledge discovery on the Stack Exchange network."
+      tools:
+        - name: search-programming-questions
+          description: "Search Stack Overflow and Stack Exchange for programming questions by keyword, topic, or technology tag"
+          hints:
+            readOnly: true
+            openWorld: true
+            idempotent: true
+          call: "stack-exchange-api.search-questions"
+          with:
+            site: "tools.site"
+            intitle: "tools.intitle"
+            tagged: "tools.tagged"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: advanced-search-questions
+          description: "Perform advanced search of Stack Exchange with acceptance, vote, and tag filters"
+          hints:
+            readOnly: true
+            openWorld: true
+            idempotent: true
+          call: "stack-exchange-api.search-advanced"
+          with:
+            site: "tools.site"
+            q: "tools.q"
+            tagged: "tools.tagged"
+            accepted: "tools.accepted"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-top-questions
+          description: "Get top-voted or most-active questions on a Stack Exchange site optionally filtered by tag"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-questions"
+          with:
+            site: "tools.site"
+            tagged: "tools.tagged"
+            sort: "tools.sort"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-unanswered-questions
+          description: "Find unanswered questions on Stack Exchange that need community attention"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-unanswered-questions"
+          with:
+            site: "tools.site"
+            tagged: "tools.tagged"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-question-details
+          description: "Get full details of specific Stack Exchange questions by ID"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-questions-by-ids"
+          with:
+            ids: "tools.ids"
+            site: "tools.site"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: browse-tags
+          description: "Browse tags on a Stack Exchange site to understand topic taxonomy"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-tags"
+          with:
+            site: "tools.site"
+            inname: "tools.inname"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: find-experts
+          description: "Find high-reputation users and experts on a Stack Exchange site by name"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-users"
+          with:
+            site: "tools.site"
+            inname: "tools.inname"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-stack-exchange-sites
+          description: "List all sites in the Stack Exchange network to find the right community"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stack-exchange-api.get-sites"
+          outputParameters:
+            - type: object
+              mapping: "$."
