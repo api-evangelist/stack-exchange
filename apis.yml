@@ -50,11 +50,11 @@ apis:
       - url: https://api.stackexchange.com/docs
         type: Documentation
       - url: https://stackexchange.com/legal/api-terms-of-use
-        type: Terms of Service
+        type: TermsOfService
       - url: https://api.stackexchange.com/docs/throttle
-        type: Rate Limits
+        type: RateLimits
       - url: http://stackapps.com/apps/oauth/register
-        type: Sign Up
+        type: SignUp
       - url: http://stackapps.com/apps/oauth
         type: Applications
       - url: openapi/stack-exchange-openapi.yml
@@ -65,17 +65,17 @@ common:
   - url: https://stackoverflow.blog/
     type: Blog
   - url: https://stackexchange.com/legal/api-terms-of-use
-    type: Terms of Service
+    type: TermsOfService
   - url: https://api.stackexchange.com/docs/throttle
-    type: Rate Limits
+    type: RateLimits
   - url: http://stackapps.com/apps/oauth/register
-    type: Sign Up
+    type: SignUp
   - url: http://stackapps.com/apps/oauth
     type: Applications
   - url: https://github.com/topics/stackexchange-api
     type: GitHub Topics
   - url: json-ld/stack-exchange-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: json-schema/stack-exchange-question-schema.json
     type: JSONSchema
   - url: vocabulary/stack-exchange-vocabulary.yml
