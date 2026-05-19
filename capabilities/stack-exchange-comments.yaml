@@ -1,0 +1,154 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Stack Exchange API — Comments
+  description: 'Stack Exchange API — Comments. 3 operations. Lead operation: Get All Comments. Self-contained Naftiko capability
+    covering one Stack Exchange business surface.'
+  tags:
+  - Stack Exchange
+  - Comments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    STACK_EXCHANGE_API_KEY: STACK_EXCHANGE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: stack-exchange-comments
+    baseUri: https://api.stackexchange.com/2.3
+    description: Stack Exchange API — Comments business capability. Self-contained, no shared references.
+    resources:
+    - name: comments
+      path: /comments
+      operations:
+      - name: getcomments
+        method: GET
+        description: Get All Comments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: comments-ids
+      path: /comments/{ids}
+      operations:
+      - name: getcommentsbyids
+        method: GET
+        description: Get Comments by IDs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: path
+          type: string
+          description: Semicolon-delimited list of comment IDs
+          required: true
+    - name: questions-ids-comments
+      path: /questions/{ids}/comments
+      operations:
+      - name: getcommentsonquestions
+        method: GET
+        description: Get Comments on Questions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: path
+          type: string
+          description: Semicolon-delimited list of question IDs
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.STACK_EXCHANGE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: stack-exchange-comments-rest
+    port: 8080
+    description: REST adapter for Stack Exchange API — Comments. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/comments
+      name: comments
+      description: REST surface for comments.
+      operations:
+      - method: GET
+        name: getcomments
+        description: Get All Comments
+        call: stack-exchange-comments.getcomments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/comments/{ids}
+      name: comments-ids
+      description: REST surface for comments-ids.
+      operations:
+      - method: GET
+        name: getcommentsbyids
+        description: Get Comments by IDs
+        call: stack-exchange-comments.getcommentsbyids
+        with:
+          ids: rest.ids
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/questions/{ids}/comments
+      name: questions-ids-comments
+      description: REST surface for questions-ids-comments.
+      operations:
+      - method: GET
+        name: getcommentsonquestions
+        description: Get Comments on Questions
+        call: stack-exchange-comments.getcommentsonquestions
+        with:
+          ids: rest.ids
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: stack-exchange-comments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Stack Exchange API — Comments. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-all-comments
+      description: Get All Comments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stack-exchange-comments.getcomments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-comments-ids
+      description: Get Comments by IDs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stack-exchange-comments.getcommentsbyids
+      with:
+        ids: tools.ids
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-comments-questions
+      description: Get Comments on Questions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stack-exchange-comments.getcommentsonquestions
+      with:
+        ids: tools.ids
+      outputParameters:
+      - type: object
+        mapping: $.
