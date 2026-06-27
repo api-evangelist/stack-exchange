@@ -50,7 +50,7 @@ apis:
       - url: https://api.stackexchange.com/docs/throttle
         type: RateLimits
       - url: http://stackapps.com/apps/oauth/register
-        type: SignUp
+        type: Signup
       - url: http://stackapps.com/apps/oauth
         type: Applications
       - url: openapi/stack-exchange-openapi.yml
@@ -67,7 +67,7 @@ common:
   - url: https://api.stackexchange.com/docs/throttle
     type: RateLimits
   - url: http://stackapps.com/apps/oauth/register
-    type: SignUp
+    type: Signup
   - url: http://stackapps.com/apps/oauth
     type: Applications
   - url: https://github.com/topics/stackexchange-api
