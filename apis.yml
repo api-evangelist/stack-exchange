@@ -56,6 +56,8 @@ apis:
       - url: openapi/stack-exchange-openapi.yml
         type: OpenAPI
 common:
+  - type: DomainSecurity
+    url: security/stack-exchange-domain-security.yml
   - type: Authentication
     url: authentication/stack-exchange-authentication.yml
   - type: OAuthScopes
