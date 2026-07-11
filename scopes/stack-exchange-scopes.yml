@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/stack-exchange-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/stack-exchange-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://stackoverflow.com/oauth
+    tokenUrl: https://stackoverflow.com/oauth/access_token/json
+  description: OAuth 2.0 authentication for Stack Exchange API. Register an application at http://stackapps.com/apps/oauth
+    to obtain client credentials.
+scopes:
+- scope: no_expiry
+  description: Issues an access token that does not expire
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stack-exchange-openapi.yml
+- scope: private_info
+  description: Access a user's private information
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stack-exchange-openapi.yml
+- scope: write_access
+  description: Allows write access to a user's data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stack-exchange-openapi.yml

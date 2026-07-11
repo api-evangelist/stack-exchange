@@ -56,6 +56,10 @@ apis:
       - url: openapi/stack-exchange-openapi.yml
         type: OpenAPI
 common:
+  - type: Authentication
+    url: authentication/stack-exchange-authentication.yml
+  - type: OAuthScopes
+    url: scopes/stack-exchange-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/stack-exchange
   - url: https://api.stackexchange.com/docs/authentication
