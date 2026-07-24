@@ -1,0 +1,186 @@
+openapi: 3.1.0
+info:
+  title: Stack Exchange Answers Sites API
+  description: The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.
+  version: '2.3'
+  contact:
+    name: Stack Exchange API Support
+    url: http://stackapps.com/
+    email: team+api@stackexchange.com
+  termsOfService: https://stackexchange.com/legal/api-terms-of-use
+servers:
+- url: https://api.stackexchange.com/2.3
+  description: Stack Exchange API v2.3
+security:
+- oauth2: []
+- {}
+tags:
+- name: Sites
+  description: Operations for retrieving information about Stack Exchange network sites.
+paths:
+  /sites:
+    get:
+      operationId: getSites
+      summary: Get All Sites
+      description: Returns all Stack Exchange network sites. This includes main sites, meta sites, and sites in various stages of development.
+      tags:
+      - Sites
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pagesize'
+      - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: A list of Stack Exchange network sites
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SitesResponse'
+components:
+  parameters:
+    filter:
+      name: filter
+      in: query
+      schema:
+        type: string
+      description: A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters.
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: The page number to return (1-indexed)
+    pagesize:
+      name: pagesize
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 100
+        default: 30
+      description: Number of results to return per page (max 100)
+  schemas:
+    Site:
+      type: object
+      description: A Stack Exchange network site
+      properties:
+        site_type:
+          type: string
+          enum:
+          - main_site
+          - meta_site
+          description: Whether this is a main site or meta site
+        name:
+          type: string
+          description: Human-readable name of the site
+        logo_url:
+          type: string
+          format: uri
+          description: URL of the site's logo
+        api_site_parameter:
+          type: string
+          description: The parameter to use for the site query parameter
+        site_url:
+          type: string
+          format: uri
+          description: URL of the site
+        audience:
+          type: string
+          description: Description of the intended audience
+        icon_url:
+          type: string
+          format: uri
+          description: URL of the site's icon
+        high_resolution_icon_url:
+          type: string
+          format: uri
+          description: URL of the high-resolution icon
+        site_state:
+          type: string
+          enum:
+          - normal
+          - closed_beta
+          - open_beta
+          - linked_meta
+          description: Current state of the site
+        launch_date:
+          type: integer
+          description: Unix timestamp of when the site launched
+        closed_beta_date:
+          type: integer
+          description: Unix timestamp of when closed beta started
+        open_beta_date:
+          type: integer
+          description: Unix timestamp of when open beta started
+        favicon_url:
+          type: string
+          format: uri
+          description: URL of the site's favicon
+    SitesResponse:
+      allOf:
+      - $ref: '#/components/schemas/Wrapper'
+      - type: object
+        properties:
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Site'
+    Wrapper:
+      type: object
+      description: Standard Stack Exchange API response wrapper containing items, pagination info, and backoff/quota information.
+      properties:
+        items:
+          type: array
+          description: The list of items returned
+          items:
+            type: object
+        has_more:
+          type: boolean
+          description: Whether there are more results available
+        quota_max:
+          type: integer
+          description: Maximum number of requests allowed per day
+        quota_remaining:
+          type: integer
+          description: Number of requests remaining for today
+        backoff:
+          type: integer
+          description: Number of seconds to wait before making additional requests if the API has asked for backoff
+        total:
+          type: integer
+          description: Total number of items available
+        page:
+          type: integer
+          description: Current page number
+        page_size:
+          type: integer
+          description: Number of items per page
+        type:
+          type: string
+          description: The type of items in the response
+        error_id:
+          type: integer
+          description: Error identifier if an error occurred
+        error_message:
+          type: string
+          description: Human-readable error description
+        error_name:
+          type: string
+          description: Machine-readable error name
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Stack Exchange API. Register an application at http://stackapps.com/apps/oauth to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://stackoverflow.com/oauth
+          tokenUrl: https://stackoverflow.com/oauth/access_token/json
+          scopes:
+            no_expiry: Issues an access token that does not expire
+            write_access: Allows write access to a user's data
+            private_info: Access a user's private information
+externalDocs:
+  description: Stack Exchange API Documentation
+  url: https://api.stackexchange.com/docs
