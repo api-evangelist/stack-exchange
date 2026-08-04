@@ -1,0 +1,28 @@
+{
+  "provider": "stack-exchange",
+  "sources": [
+    "stack-exchange-answers-api-openapi.yml",
+    "stack-exchange-badges-api-openapi.yml",
+    "stack-exchange-comments-api-openapi.yml",
+    "stack-exchange-questions-api-openapi.yml",
+    "stack-exchange-search-api-openapi.yml",
+    "stack-exchange-sites-api-openapi.yml",
+    "stack-exchange-tags-api-openapi.yml",
+    "stack-exchange-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "stack-exchange-answers-api-openapi.yml",
+    "stack-exchange-badges-api-openapi.yml",
+    "stack-exchange-comments-api-openapi.yml",
+    "stack-exchange-questions-api-openapi.yml",
+    "stack-exchange-search-api-openapi.yml",
+    "stack-exchange-sites-api-openapi.yml",
+    "stack-exchange-tags-api-openapi.yml",
+    "stack-exchange-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
