@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers Tags API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/tags",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the minimum creation date"
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the maximum creation date"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "inname",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags whose name contains this string"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the tags on a Stack Exchange site. Tags are used to categorize questions and help users find relevant content."
+        },
+        {
+          "info": {
+            "name": "Get Tag Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/tags/:tags/info",
+            "params": [
+              {
+                "name": "tags",
+                "value": "javascript;python",
+                "type": "path",
+                "description": "Semicolon-delimited list of tag names"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about the tags specified in the tags parameter. Tags are semicolon-delimited."
+        },
+        {
+          "info": {
+            "name": "Get Related Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/tags/:tags/related",
+            "params": [
+              {
+                "name": "tags",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of tag names"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the tags that are most related to the provided semicolon- delimited list of tags."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

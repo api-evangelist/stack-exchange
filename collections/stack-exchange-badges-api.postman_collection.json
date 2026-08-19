@@ -1,0 +1,321 @@
+{
+  "item": [
+    {
+      "id": "1537e4a6-527d-437a-a082-2b8ea74ddafe",
+      "name": "Badges",
+      "description": {
+        "content": "Operations for retrieving badge definitions and badge awards on Stack Exchange sites.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f62621f-75e1-423e-8f25-f996cf106be2",
+          "name": "Get All Badges",
+          "request": {
+            "name": "Get All Badges",
+            "description": {
+              "content": "Returns all badges in the system. Badges are awarded to users for performing actions or achieving goals on a Stack Exchange site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "badges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "inname",
+                  "value": "<string>",
+                  "description": "Filter badges whose name contains this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e64e2c0e-5325-47de-8cfb-882f9c981439",
+              "name": "A list of badges",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "badges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"badge_id\": 8641,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"award_count\": 7017,\n      \"badge_type\": \"named\",\n      \"rank\": \"silver\",\n      \"link\": \"http://KpTCYPCYPdVIq.kxkwiknV17FoLrZ\"\n    },\n    {\n      \"badge_id\": 1029,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"award_count\": 149,\n      \"badge_type\": \"named\",\n      \"rank\": \"gold\",\n      \"link\": \"http://ExCTFBORsdZNzAyMuQiOKNICe.wbURNQ5cfe6jAUqGDkRzByUzeko5qwRHmX17peVp1Vkjq8X8CGyb6t2\"\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 3444,\n  \"quota_remaining\": 5797,\n  \"backoff\": 8008,\n  \"total\": 4506,\n  \"page\": 1408,\n  \"page_size\": 1918,\n  \"type\": \"string\",\n  \"error_id\": 1654,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1abd8848-4230-441f-bc36-81254f499949",
+          "name": "Get Badges by IDs",
+          "request": {
+            "name": "Get Badges by IDs",
+            "description": {
+              "content": "Returns badges identified by the provided semicolon-delimited list of badge IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "badges",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of badge IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0f83071-57a4-4fe0-b4ea-538031f5b262",
+              "name": "Badges matching the provided IDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "badges",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of badge IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"badge_id\": 8641,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"award_count\": 7017,\n      \"badge_type\": \"named\",\n      \"rank\": \"silver\",\n      \"link\": \"http://KpTCYPCYPdVIq.kxkwiknV17FoLrZ\"\n    },\n    {\n      \"badge_id\": 1029,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"award_count\": 149,\n      \"badge_type\": \"named\",\n      \"rank\": \"gold\",\n      \"link\": \"http://ExCTFBORsdZNzAyMuQiOKNICe.wbURNQ5cfe6jAUqGDkRzByUzeko5qwRHmX17peVp1Vkjq8X8CGyb6t2\"\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 3444,\n  \"quota_remaining\": 5797,\n  \"backoff\": 8008,\n  \"total\": 4506,\n  \"page\": 1408,\n  \"page_size\": 1918,\n  \"type\": \"string\",\n  \"error_id\": 1654,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bd45b059-9eb4-4949-959a-38a9317781d5",
+    "name": "Stack Exchange Answers Badges API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}

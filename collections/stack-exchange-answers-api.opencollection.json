@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Answers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Answers for Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/:ids/answers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "12345",
+                "type": "path",
+                "description": "Semicolon-delimited list of question IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the answers for a set of questions identified by a semicolon-delimited list of IDs."
+        },
+        {
+          "info": {
+            "name": "Get All Answers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/answers",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the minimum creation date"
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the maximum creation date"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns all answers on a Stack Exchange site. Results can be filtered and sorted by creation date, activity, and vote score."
+        },
+        {
+          "info": {
+            "name": "Get Answers by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/answers/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of answer IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the answers identified by a semicolon-delimited list of IDs."
+        },
+        {
+          "info": {
+            "name": "Get Answers by User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/:ids/answers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of user IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the answers posted by the users identified in the IDs parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

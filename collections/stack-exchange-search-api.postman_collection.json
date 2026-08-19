@@ -1,0 +1,735 @@
+{
+  "item": [
+    {
+      "id": "ed3d13d7-6d2c-4d36-873e-6dd5dc7f4c4e",
+      "name": "Search",
+      "description": {
+        "content": "Operations for searching questions and content across the Stack Exchange network.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5a8a929-bb01-4c51-ba6c-771a3b2bd936",
+          "name": "Search Questions",
+          "request": {
+            "name": "Search Questions",
+            "description": {
+              "content": "Searches for questions based on a query string. Returns questions that match the search terms in the title, body, or tags. At least one of tagged, nottagged, or intitle must be specified.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "intitle",
+                  "value": "<string>",
+                  "description": "Search within question titles"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagged",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "nottagged",
+                  "value": "<string>",
+                  "description": "Exclude questions with these semicolon-delimited tags"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50e69388-f2b1-4255-a9e8-bb61784ae9c8",
+              "name": "Questions matching the search query",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intitle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nottagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 3705,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 7276,\n      \"view_count\": 5231,\n      \"answer_count\": 829,\n      \"accepted_answer_id\": 2746,\n      \"is_answered\": true,\n      \"creation_date\": 1746,\n      \"last_activity_date\": 8985,\n      \"last_edit_date\": 6083,\n      \"owner\": {\n        \"user_id\": 2116,\n        \"display_name\": \"string\",\n        \"reputation\": 1008,\n        \"user_type\": \"moderator\",\n        \"profile_image\": \"http://txlO.mumnKZLbQ,gAttcorkH.XkgKrDnZokW5f0\",\n        \"link\": \"https://DgsqW.pikrPLtdcI7KdA0b7K0otnJ0Fm-8Ft,LyKy9,qocQuDfS9qY4YN6WZ3Os\",\n        \"accept_rate\": 5440\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"http://puIwpmadajumQAMKkLfEPCohLGQQXP.ngSyIJgsgvN5z4x3UL\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 8020,\n      \"bounty_amount\": 2961,\n      \"bounty_closes_date\": 7834\n    },\n    {\n      \"question_id\": 641,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1683,\n      \"view_count\": 6848,\n      \"answer_count\": 9903,\n      \"accepted_answer_id\": 209,\n      \"is_answered\": true,\n      \"creation_date\": 8440,\n      \"last_activity_date\": 1024,\n      \"last_edit_date\": 315,\n      \"owner\": {\n        \"user_id\": 3759,\n        \"display_name\": \"string\",\n        \"reputation\": 7190,\n        \"user_type\": \"team_admin\",\n        \"profile_image\": \"http://ZtSSSBr.yxgbMMUG3vACbk2eXqS3cjQfhtz+axlRZxJaw,\",\n        \"link\": \"https://cDzfpJKfgZwAVqZmWqmaSp.vhmNcMrlfL+mBV8eyJH5Gl9Pg-\",\n        \"accept_rate\": 1017\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://AwHZVEOixqMXhWfVLotFcHFfsVR.uarayF4JPitxIbVhXiljUPtAgUoIPQWkixmMPkUNbc29XKDX0ViLjb.GiN2lfP3d\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 9402,\n      \"bounty_amount\": 3879,\n      \"bounty_closes_date\": 4033\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 7152,\n  \"quota_remaining\": 7747,\n  \"backoff\": 2949,\n  \"total\": 5220,\n  \"page\": 9625,\n  \"page_size\": 7627,\n  \"type\": \"string\",\n  \"error_id\": 5022,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3ee99b7-c3c8-40e1-8104-abd8422700c4",
+              "name": "Bad request due to missing or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intitle",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nottagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 3769,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e43c951-7c58-4908-9975-ae8e8d86509d",
+          "name": "Advanced Question Search",
+          "request": {
+            "name": "Advanced Question Search",
+            "description": {
+              "content": "Searches for questions using advanced filtering options including accepted answers, minimum score, body text, and view count filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "advanced"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query"
+                },
+                {
+                  "disabled": false,
+                  "key": "accepted",
+                  "value": "<boolean>",
+                  "description": "Filter for questions that have accepted answers"
+                },
+                {
+                  "disabled": false,
+                  "key": "answers",
+                  "value": "<integer>",
+                  "description": "Minimum number of answers"
+                },
+                {
+                  "disabled": false,
+                  "key": "body",
+                  "value": "<string>",
+                  "description": "Text that must appear in the question body"
+                },
+                {
+                  "disabled": false,
+                  "key": "closed",
+                  "value": "<boolean>",
+                  "description": "Filter for closed or open questions"
+                },
+                {
+                  "disabled": false,
+                  "key": "migrated",
+                  "value": "<boolean>",
+                  "description": "Filter for migrated questions"
+                },
+                {
+                  "disabled": false,
+                  "key": "notice",
+                  "value": "<boolean>",
+                  "description": "Filter for questions with a post notice"
+                },
+                {
+                  "disabled": false,
+                  "key": "nottagged",
+                  "value": "<string>",
+                  "description": "Exclude questions with these tags (semicolon-delimited)"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagged",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Text that must appear in the question title"
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<integer>",
+                  "description": "Filter by user ID of the question owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "views",
+                  "value": "<integer>",
+                  "description": "Minimum number of question views"
+                },
+                {
+                  "disabled": false,
+                  "key": "wiki",
+                  "value": "<boolean>",
+                  "description": "Filter for community wiki questions"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c996650-ec30-4cbe-9028-680698c28cea",
+              "name": "Questions matching the advanced search criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accepted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "answers",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "body",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "migrated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notice",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "nottagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "views",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "wiki",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 3705,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 7276,\n      \"view_count\": 5231,\n      \"answer_count\": 829,\n      \"accepted_answer_id\": 2746,\n      \"is_answered\": true,\n      \"creation_date\": 1746,\n      \"last_activity_date\": 8985,\n      \"last_edit_date\": 6083,\n      \"owner\": {\n        \"user_id\": 2116,\n        \"display_name\": \"string\",\n        \"reputation\": 1008,\n        \"user_type\": \"moderator\",\n        \"profile_image\": \"http://txlO.mumnKZLbQ,gAttcorkH.XkgKrDnZokW5f0\",\n        \"link\": \"https://DgsqW.pikrPLtdcI7KdA0b7K0otnJ0Fm-8Ft,LyKy9,qocQuDfS9qY4YN6WZ3Os\",\n        \"accept_rate\": 5440\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"http://puIwpmadajumQAMKkLfEPCohLGQQXP.ngSyIJgsgvN5z4x3UL\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 8020,\n      \"bounty_amount\": 2961,\n      \"bounty_closes_date\": 7834\n    },\n    {\n      \"question_id\": 641,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1683,\n      \"view_count\": 6848,\n      \"answer_count\": 9903,\n      \"accepted_answer_id\": 209,\n      \"is_answered\": true,\n      \"creation_date\": 8440,\n      \"last_activity_date\": 1024,\n      \"last_edit_date\": 315,\n      \"owner\": {\n        \"user_id\": 3759,\n        \"display_name\": \"string\",\n        \"reputation\": 7190,\n        \"user_type\": \"team_admin\",\n        \"profile_image\": \"http://ZtSSSBr.yxgbMMUG3vACbk2eXqS3cjQfhtz+axlRZxJaw,\",\n        \"link\": \"https://cDzfpJKfgZwAVqZmWqmaSp.vhmNcMrlfL+mBV8eyJH5Gl9Pg-\",\n        \"accept_rate\": 1017\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://AwHZVEOixqMXhWfVLotFcHFfsVR.uarayF4JPitxIbVhXiljUPtAgUoIPQWkixmMPkUNbc29XKDX0ViLjb.GiN2lfP3d\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 9402,\n      \"bounty_amount\": 3879,\n      \"bounty_closes_date\": 4033\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 7152,\n  \"quota_remaining\": 7747,\n  \"backoff\": 2949,\n  \"total\": 5220,\n  \"page\": 9625,\n  \"page_size\": 7627,\n  \"type\": \"string\",\n  \"error_id\": 5022,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92c59f71-9b4b-4a49-aa75-f41d2895ae52",
+          "name": "Find Similar Questions",
+          "request": {
+            "name": "Find Similar Questions",
+            "description": {
+              "content": "Returns questions that are similar to the question with the given title. Useful for finding existing related questions before asking a new one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "similar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "(Required) The title of the question to find similar questions for"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagged",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8829a53a-acce-4e5d-9d05-43e5787e9a4d",
+              "name": "Questions similar to the provided title",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "similar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 3705,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 7276,\n      \"view_count\": 5231,\n      \"answer_count\": 829,\n      \"accepted_answer_id\": 2746,\n      \"is_answered\": true,\n      \"creation_date\": 1746,\n      \"last_activity_date\": 8985,\n      \"last_edit_date\": 6083,\n      \"owner\": {\n        \"user_id\": 2116,\n        \"display_name\": \"string\",\n        \"reputation\": 1008,\n        \"user_type\": \"moderator\",\n        \"profile_image\": \"http://txlO.mumnKZLbQ,gAttcorkH.XkgKrDnZokW5f0\",\n        \"link\": \"https://DgsqW.pikrPLtdcI7KdA0b7K0otnJ0Fm-8Ft,LyKy9,qocQuDfS9qY4YN6WZ3Os\",\n        \"accept_rate\": 5440\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"http://puIwpmadajumQAMKkLfEPCohLGQQXP.ngSyIJgsgvN5z4x3UL\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 8020,\n      \"bounty_amount\": 2961,\n      \"bounty_closes_date\": 7834\n    },\n    {\n      \"question_id\": 641,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1683,\n      \"view_count\": 6848,\n      \"answer_count\": 9903,\n      \"accepted_answer_id\": 209,\n      \"is_answered\": true,\n      \"creation_date\": 8440,\n      \"last_activity_date\": 1024,\n      \"last_edit_date\": 315,\n      \"owner\": {\n        \"user_id\": 3759,\n        \"display_name\": \"string\",\n        \"reputation\": 7190,\n        \"user_type\": \"team_admin\",\n        \"profile_image\": \"http://ZtSSSBr.yxgbMMUG3vACbk2eXqS3cjQfhtz+axlRZxJaw,\",\n        \"link\": \"https://cDzfpJKfgZwAVqZmWqmaSp.vhmNcMrlfL+mBV8eyJH5Gl9Pg-\",\n        \"accept_rate\": 1017\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://AwHZVEOixqMXhWfVLotFcHFfsVR.uarayF4JPitxIbVhXiljUPtAgUoIPQWkixmMPkUNbc29XKDX0ViLjb.GiN2lfP3d\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 9402,\n      \"bounty_amount\": 3879,\n      \"bounty_closes_date\": 4033\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 7152,\n  \"quota_remaining\": 7747,\n  \"backoff\": 2949,\n  \"total\": 5220,\n  \"page\": 9625,\n  \"page_size\": 7627,\n  \"type\": \"string\",\n  \"error_id\": 5022,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "38539c7b-d7a7-4eb1-b125-7baad07350b1",
+    "name": "Stack Exchange Answers Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}

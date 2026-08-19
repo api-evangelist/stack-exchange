@@ -1,0 +1,391 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers Questions API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Questions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the minimum creation date"
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the maximum creation date"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the questions on a Stack Exchange site. Results are sorted by activity by default. Requires the site parameter to specify which Stack Exchange site to query."
+        },
+        {
+          "info": {
+            "name": "Get Questions by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "1;2;3",
+                "type": "path",
+                "description": "Semicolon-delimited list of question IDs (max 100)"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the questions identified by a semicolon-delimited list of IDs. Maximum 100 IDs per request."
+        },
+        {
+          "info": {
+            "name": "Get Answers for Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/:ids/answers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "12345",
+                "type": "path",
+                "description": "Semicolon-delimited list of question IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the answers for a set of questions identified by a semicolon-delimited list of IDs."
+        },
+        {
+          "info": {
+            "name": "Get Comments on Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/:ids/comments",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of question IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the comments on a set of questions identified by a semicolon-delimited list of IDs."
+        },
+        {
+          "info": {
+            "name": "Get Unanswered Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/unanswered",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "tagged",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-delimited list of tags to filter by"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns questions that have no answers. Questions returned by this method technically have at least one answer but none of those answers have been accepted."
+        },
+        {
+          "info": {
+            "name": "Get Featured Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/questions/featured",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "tagged",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-delimited list of tags to filter by"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns questions that have active bounties. Questions with bounties are featured to attract attention and answers."
+        },
+        {
+          "info": {
+            "name": "Get Questions by User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/:ids/questions",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of user IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the questions asked by the users identified in the IDs parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1533 @@
+{
+  "item": [
+    {
+      "id": "f7d228c5-4773-4ad7-b42d-2fdf61e982e0",
+      "name": "Questions",
+      "description": {
+        "content": "Operations for retrieving, searching, and managing questions across the Stack Exchange network.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3235d9b-c162-41ac-939d-4ce76a820c3a",
+          "name": "Get All Questions",
+          "request": {
+            "name": "Get All Questions",
+            "description": {
+              "content": "Returns the questions on a Stack Exchange site. Results are sorted by activity by default. Requires the site parameter to specify which Stack Exchange site to query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromdate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the minimum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "todate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the maximum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e678316b-88c4-43f4-aed8-e7765c66400c",
+              "name": "A list of questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 4759,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1955,\n      \"view_count\": 7375,\n      \"answer_count\": 2110,\n      \"accepted_answer_id\": 4693,\n      \"is_answered\": false,\n      \"creation_date\": 9932,\n      \"last_activity_date\": 314,\n      \"last_edit_date\": 5047,\n      \"owner\": {\n        \"user_id\": 1400,\n        \"display_name\": \"string\",\n        \"reputation\": 7749,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://AS.njZNR91LXalBZ+\",\n        \"link\": \"http://vv.ctme31mPJbYjmecGG2SzMwtvyQAPm2naNPg21hKaCin,fDpjdEDIq\",\n        \"accept_rate\": 6886\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://QHsMHnfWEHrPSdUSnLMCN.slBSpyFl-0DRR1lInL5bmXeOaDEDaz.iCf+fTdqWGUAg\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 2283,\n      \"bounty_amount\": 1225,\n      \"bounty_closes_date\": 9042\n    },\n    {\n      \"question_id\": 6323,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 353,\n      \"view_count\": 9420,\n      \"answer_count\": 7571,\n      \"accepted_answer_id\": 3278,\n      \"is_answered\": false,\n      \"creation_date\": 1441,\n      \"last_activity_date\": 3672,\n      \"last_edit_date\": 8697,\n      \"owner\": {\n        \"user_id\": 4040,\n        \"display_name\": \"string\",\n        \"reputation\": 8951,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"https://Ir.cdVWtMtz28wI-15bZJxpsIsoey\",\n        \"link\": \"http://ZzwWAWKJVyoUxgNWKSqMaetk.jjkecSFRR0w\",\n        \"accept_rate\": 1776\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://THdvgxOyGQqhCDuqKIWBwxsUDmQyJ.vjy6S4MV3gxwT3RihQEipMdLqjPA8cbkCPxuan,sQ\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 5710,\n      \"bounty_amount\": 5184,\n      \"bounty_closes_date\": 7093\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 199,\n  \"quota_remaining\": 7391,\n  \"backoff\": 2348,\n  \"total\": 7129,\n  \"page\": 5119,\n  \"page_size\": 285,\n  \"type\": \"string\",\n  \"error_id\": 2265,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e602579d-a6ff-46b1-95e0-1b1658bd8c56",
+              "name": "Bad request due to missing or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6f1a8f1-3816-4e49-ac04-e32d8986282e",
+              "name": "Authentication required or token is invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36ffed03-067f-4271-bc11-1ae5486b70a9",
+              "name": "Request throttled due to rate limit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e3d36ec-303e-47a5-9978-4f27e19ec203",
+          "name": "Get Questions by IDs",
+          "request": {
+            "name": "Get Questions by IDs",
+            "description": {
+              "content": "Returns the questions identified by a semicolon-delimited list of IDs. Maximum 100 IDs per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of question IDs (max 100)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad654ccf-28e1-4e7b-8f03-93e697f968e1",
+              "name": "Questions matching the provided IDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs (max 100)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 4759,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1955,\n      \"view_count\": 7375,\n      \"answer_count\": 2110,\n      \"accepted_answer_id\": 4693,\n      \"is_answered\": false,\n      \"creation_date\": 9932,\n      \"last_activity_date\": 314,\n      \"last_edit_date\": 5047,\n      \"owner\": {\n        \"user_id\": 1400,\n        \"display_name\": \"string\",\n        \"reputation\": 7749,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://AS.njZNR91LXalBZ+\",\n        \"link\": \"http://vv.ctme31mPJbYjmecGG2SzMwtvyQAPm2naNPg21hKaCin,fDpjdEDIq\",\n        \"accept_rate\": 6886\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://QHsMHnfWEHrPSdUSnLMCN.slBSpyFl-0DRR1lInL5bmXeOaDEDaz.iCf+fTdqWGUAg\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 2283,\n      \"bounty_amount\": 1225,\n      \"bounty_closes_date\": 9042\n    },\n    {\n      \"question_id\": 6323,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 353,\n      \"view_count\": 9420,\n      \"answer_count\": 7571,\n      \"accepted_answer_id\": 3278,\n      \"is_answered\": false,\n      \"creation_date\": 1441,\n      \"last_activity_date\": 3672,\n      \"last_edit_date\": 8697,\n      \"owner\": {\n        \"user_id\": 4040,\n        \"display_name\": \"string\",\n        \"reputation\": 8951,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"https://Ir.cdVWtMtz28wI-15bZJxpsIsoey\",\n        \"link\": \"http://ZzwWAWKJVyoUxgNWKSqMaetk.jjkecSFRR0w\",\n        \"accept_rate\": 1776\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://THdvgxOyGQqhCDuqKIWBwxsUDmQyJ.vjy6S4MV3gxwT3RihQEipMdLqjPA8cbkCPxuan,sQ\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 5710,\n      \"bounty_amount\": 5184,\n      \"bounty_closes_date\": 7093\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 199,\n  \"quota_remaining\": 7391,\n  \"backoff\": 2348,\n  \"total\": 7129,\n  \"page\": 5119,\n  \"page_size\": 285,\n  \"type\": \"string\",\n  \"error_id\": 2265,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd5baaeb-acde-40b4-b160-def3d8c1fb5a",
+              "name": "Bad request due to missing or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs (max 100)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f60de92b-8818-4197-85fb-32052a9dc3af",
+              "name": "Request throttled due to rate limit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs (max 100)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6f96439-b276-416d-8566-c1f915a2a037",
+          "name": "Get Answers for Questions",
+          "request": {
+            "name": "Get Answers for Questions",
+            "description": {
+              "content": "Returns the answers for a set of questions identified by a semicolon-delimited list of IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                ":ids",
+                "answers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of question IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b00dc800-07c1-4764-8182-9f0d201e7485",
+              "name": "Answers for the specified questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids",
+                    "answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"answer_id\": 61,\n      \"question_id\": 6905,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 7357,\n      \"is_accepted\": false,\n      \"creation_date\": 3613,\n      \"last_activity_date\": 949,\n      \"last_edit_date\": 7753,\n      \"owner\": {\n        \"user_id\": 6097,\n        \"display_name\": \"string\",\n        \"reputation\": 1087,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://vWwSDgdVUAq.pviexhiGSC3W+tBFimP6AaIJTmBIQakDKtSiKPF+o9\",\n        \"link\": \"http://TURcZ.hpbmxj.m10,DTBNIM2gRcftlaH\",\n        \"accept_rate\": 9032\n      },\n      \"link\": \"https://XoGb.thyPgfqE+H2GXu1YMD+COptoDLQmucry3EWRCWAFO\"\n    },\n    {\n      \"answer_id\": 662,\n      \"question_id\": 7207,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8707,\n      \"is_accepted\": false,\n      \"creation_date\": 4938,\n      \"last_activity_date\": 1540,\n      \"last_edit_date\": 2306,\n      \"owner\": {\n        \"user_id\": 897,\n        \"display_name\": \"string\",\n        \"reputation\": 9097,\n        \"user_type\": \"moderator\",\n        \"profile_image\": \"http://IBvPfZM.tlSte7Nl0SSQWuloQcWpk.oAoVoVJr8o\",\n        \"link\": \"https://xmtTJIKJcvzjYNiVFeLze.xvyLblqXEqTqoGDQL5P7DprDWGaqosMcD3W,A3fkFzRVUiEE82XcFl4DUrIo,gIrPa6rU4MfxVw5gdQ\",\n        \"accept_rate\": 7886\n      },\n      \"link\": \"https://XJpuoPSBniuuqxndd.xgvleZvAq2eBPQoDGepJktaaa,UMG4xLwSB7DsVdWIawT2RFwy1s4\"\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 5027,\n  \"quota_remaining\": 4363,\n  \"backoff\": 2653,\n  \"total\": 4019,\n  \"page\": 8974,\n  \"page_size\": 1647,\n  \"type\": \"string\",\n  \"error_id\": 7908,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f258fbe2-70f4-48e4-927c-be1e77701b18",
+              "name": "Bad request due to missing or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids",
+                    "answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_id\": 54,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89045dc3-b7a9-4bc6-ae29-d1f72040a2d7",
+          "name": "Get Comments on Questions",
+          "request": {
+            "name": "Get Comments on Questions",
+            "description": {
+              "content": "Returns the comments on a set of questions identified by a semicolon-delimited list of IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                ":ids",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of question IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4308356f-c111-4a3d-bf6b-8a3e4db010e1",
+              "name": "Comments on the specified questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"comment_id\": 3643,\n      \"post_id\": 1083,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 902,\n      \"creation_date\": 6896,\n      \"owner\": {\n        \"user_id\": 1211,\n        \"display_name\": \"string\",\n        \"reputation\": 1180,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"http://evTtsfhwVXDDKFfpF.zqtdKlwwTzW6ajxvJrR,eVGEWGX5PvfbM3FgIKKyogvGrDbeDDLFVb04Pm68j0mh0\",\n        \"link\": \"https://ZNbTlufAoQRiWIzYpqwTsTR.oin3eG3izyJJy8SICShwEmY0Pf.F70zE3mwuvFtJL\",\n        \"accept_rate\": 8428\n      },\n      \"link\": \"http://XvJZKgTuCWMGikXrMf.csxrGUQeABwral6cKV59qZjd,\"\n    },\n    {\n      \"comment_id\": 6192,\n      \"post_id\": 1773,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 4232,\n      \"creation_date\": 8146,\n      \"owner\": {\n        \"user_id\": 2038,\n        \"display_name\": \"string\",\n        \"reputation\": 9731,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"http://cDyXVPeeFsbXZnrXbrjgfrZCIqg.wnsxZQOJVz7aaNOzQdM0c-SYDYAtcPLVHq05MeaCX5cwapxqWeACV3AN7YBezkzDGZfk9pI\",\n        \"link\": \"http://pUfBEfq.vaqcshcoe-sa7XSin3faER5.A75U\",\n        \"accept_rate\": 4032\n      },\n      \"link\": \"https://nobYOIihxAINxvLiJLbawUJfHMgdBWY.ouygUX4iVcDBdaVPWXxn2g-pavDLoP1WUDh-yjtt5L4gPf\"\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 5233,\n  \"quota_remaining\": 4734,\n  \"backoff\": 5998,\n  \"total\": 4656,\n  \"page\": 4679,\n  \"page_size\": 8750,\n  \"type\": \"string\",\n  \"error_id\": 2601,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb69b88c-42c4-41d0-ae09-446275d73ffd",
+          "name": "Get Unanswered Questions",
+          "request": {
+            "name": "Get Unanswered Questions",
+            "description": {
+              "content": "Returns questions that have no answers. Questions returned by this method technically have at least one answer but none of those answers have been accepted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                "unanswered"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagged",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8599144e-e3d4-47a5-9cfc-4310f4689352",
+              "name": "List of unanswered questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    "unanswered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 4759,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1955,\n      \"view_count\": 7375,\n      \"answer_count\": 2110,\n      \"accepted_answer_id\": 4693,\n      \"is_answered\": false,\n      \"creation_date\": 9932,\n      \"last_activity_date\": 314,\n      \"last_edit_date\": 5047,\n      \"owner\": {\n        \"user_id\": 1400,\n        \"display_name\": \"string\",\n        \"reputation\": 7749,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://AS.njZNR91LXalBZ+\",\n        \"link\": \"http://vv.ctme31mPJbYjmecGG2SzMwtvyQAPm2naNPg21hKaCin,fDpjdEDIq\",\n        \"accept_rate\": 6886\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://QHsMHnfWEHrPSdUSnLMCN.slBSpyFl-0DRR1lInL5bmXeOaDEDaz.iCf+fTdqWGUAg\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 2283,\n      \"bounty_amount\": 1225,\n      \"bounty_closes_date\": 9042\n    },\n    {\n      \"question_id\": 6323,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 353,\n      \"view_count\": 9420,\n      \"answer_count\": 7571,\n      \"accepted_answer_id\": 3278,\n      \"is_answered\": false,\n      \"creation_date\": 1441,\n      \"last_activity_date\": 3672,\n      \"last_edit_date\": 8697,\n      \"owner\": {\n        \"user_id\": 4040,\n        \"display_name\": \"string\",\n        \"reputation\": 8951,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"https://Ir.cdVWtMtz28wI-15bZJxpsIsoey\",\n        \"link\": \"http://ZzwWAWKJVyoUxgNWKSqMaetk.jjkecSFRR0w\",\n        \"accept_rate\": 1776\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://THdvgxOyGQqhCDuqKIWBwxsUDmQyJ.vjy6S4MV3gxwT3RihQEipMdLqjPA8cbkCPxuan,sQ\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 5710,\n      \"bounty_amount\": 5184,\n      \"bounty_closes_date\": 7093\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 199,\n  \"quota_remaining\": 7391,\n  \"backoff\": 2348,\n  \"total\": 7129,\n  \"page\": 5119,\n  \"page_size\": 285,\n  \"type\": \"string\",\n  \"error_id\": 2265,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e85b6ef-7dff-4ebd-95c2-ad7852787647",
+          "name": "Get Featured Questions",
+          "request": {
+            "name": "Get Featured Questions",
+            "description": {
+              "content": "Returns questions that have active bounties. Questions with bounties are featured to attract attention and answers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                "featured"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagged",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be75bcee-02c2-44b2-905d-c112ab2b12ce",
+              "name": "List of featured questions with active bounties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    "featured"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagged",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 4759,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1955,\n      \"view_count\": 7375,\n      \"answer_count\": 2110,\n      \"accepted_answer_id\": 4693,\n      \"is_answered\": false,\n      \"creation_date\": 9932,\n      \"last_activity_date\": 314,\n      \"last_edit_date\": 5047,\n      \"owner\": {\n        \"user_id\": 1400,\n        \"display_name\": \"string\",\n        \"reputation\": 7749,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://AS.njZNR91LXalBZ+\",\n        \"link\": \"http://vv.ctme31mPJbYjmecGG2SzMwtvyQAPm2naNPg21hKaCin,fDpjdEDIq\",\n        \"accept_rate\": 6886\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://QHsMHnfWEHrPSdUSnLMCN.slBSpyFl-0DRR1lInL5bmXeOaDEDaz.iCf+fTdqWGUAg\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 2283,\n      \"bounty_amount\": 1225,\n      \"bounty_closes_date\": 9042\n    },\n    {\n      \"question_id\": 6323,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 353,\n      \"view_count\": 9420,\n      \"answer_count\": 7571,\n      \"accepted_answer_id\": 3278,\n      \"is_answered\": false,\n      \"creation_date\": 1441,\n      \"last_activity_date\": 3672,\n      \"last_edit_date\": 8697,\n      \"owner\": {\n        \"user_id\": 4040,\n        \"display_name\": \"string\",\n        \"reputation\": 8951,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"https://Ir.cdVWtMtz28wI-15bZJxpsIsoey\",\n        \"link\": \"http://ZzwWAWKJVyoUxgNWKSqMaetk.jjkecSFRR0w\",\n        \"accept_rate\": 1776\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://THdvgxOyGQqhCDuqKIWBwxsUDmQyJ.vjy6S4MV3gxwT3RihQEipMdLqjPA8cbkCPxuan,sQ\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 5710,\n      \"bounty_amount\": 5184,\n      \"bounty_closes_date\": 7093\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 199,\n  \"quota_remaining\": 7391,\n  \"backoff\": 2348,\n  \"total\": 7129,\n  \"page\": 5119,\n  \"page_size\": 285,\n  \"type\": \"string\",\n  \"error_id\": 2265,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d57145c-9cde-45e0-8036-a164c9a37b6b",
+          "name": "Get Questions by User",
+          "request": {
+            "name": "Get Questions by User",
+            "description": {
+              "content": "Returns the questions asked by the users identified in the IDs parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":ids",
+                "questions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of user IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a7e6428-fcd4-4ab9-a932-6aa169d46415",
+              "name": "Questions asked by the specified users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":ids",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of user IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"question_id\": 4759,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 1955,\n      \"view_count\": 7375,\n      \"answer_count\": 2110,\n      \"accepted_answer_id\": 4693,\n      \"is_answered\": false,\n      \"creation_date\": 9932,\n      \"last_activity_date\": 314,\n      \"last_edit_date\": 5047,\n      \"owner\": {\n        \"user_id\": 1400,\n        \"display_name\": \"string\",\n        \"reputation\": 7749,\n        \"user_type\": \"named_moderator\",\n        \"profile_image\": \"https://AS.njZNR91LXalBZ+\",\n        \"link\": \"http://vv.ctme31mPJbYjmecGG2SzMwtvyQAPm2naNPg21hKaCin,fDpjdEDIq\",\n        \"accept_rate\": 6886\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://QHsMHnfWEHrPSdUSnLMCN.slBSpyFl-0DRR1lInL5bmXeOaDEDaz.iCf+fTdqWGUAg\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 2283,\n      \"bounty_amount\": 1225,\n      \"bounty_closes_date\": 9042\n    },\n    {\n      \"question_id\": 6323,\n      \"title\": \"string\",\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 353,\n      \"view_count\": 9420,\n      \"answer_count\": 7571,\n      \"accepted_answer_id\": 3278,\n      \"is_answered\": false,\n      \"creation_date\": 1441,\n      \"last_activity_date\": 3672,\n      \"last_edit_date\": 8697,\n      \"owner\": {\n        \"user_id\": 4040,\n        \"display_name\": \"string\",\n        \"reputation\": 8951,\n        \"user_type\": \"unregistered\",\n        \"profile_image\": \"https://Ir.cdVWtMtz28wI-15bZJxpsIsoey\",\n        \"link\": \"http://ZzwWAWKJVyoUxgNWKSqMaetk.jjkecSFRR0w\",\n        \"accept_rate\": 1776\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"link\": \"https://THdvgxOyGQqhCDuqKIWBwxsUDmQyJ.vjy6S4MV3gxwT3RihQEipMdLqjPA8cbkCPxuan,sQ\",\n      \"closed_reason\": \"string\",\n      \"closed_date\": 5710,\n      \"bounty_amount\": 5184,\n      \"bounty_closes_date\": 7093\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 199,\n  \"quota_remaining\": 7391,\n  \"backoff\": 2348,\n  \"total\": 7129,\n  \"page\": 5119,\n  \"page_size\": 285,\n  \"type\": \"string\",\n  \"error_id\": 2265,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2fc03367-5e0b-4127-99d7-b579b141979a",
+    "name": "Stack Exchange Answers Questions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}

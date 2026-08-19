@@ -1,0 +1,273 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers Users API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the minimum creation date"
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp for the maximum creation date"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "inname",
+                "value": "",
+                "type": "query",
+                "description": "Filter users whose display name contains this string"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns all users on a Stack Exchange site. Results can be filtered by inname to match users whose display name contains the given string."
+        },
+        {
+          "info": {
+            "name": "Get Users by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of user IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the users identified by a semicolon-delimited list of user IDs."
+        },
+        {
+          "info": {
+            "name": "Get Questions by User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/:ids/questions",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of user IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the questions asked by the users identified in the IDs parameter."
+        },
+        {
+          "info": {
+            "name": "Get Answers by User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/:ids/answers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Semicolon-delimited list of user IDs"
+              },
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns the answers posted by the users identified in the IDs parameter."
+        },
+        {
+          "info": {
+            "name": "Get Authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/users/me",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://stackoverflow.com/oauth",
+              "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the authenticated user associated with the provided access token. Requires authentication."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers Sites API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/sites",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns all Stack Exchange network sites. This includes main sites, meta sites, and sites in various stages of development."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

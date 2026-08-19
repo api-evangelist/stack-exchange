@@ -1,0 +1,463 @@
+{
+  "item": [
+    {
+      "id": "f9bd8e1c-c0c8-4e7c-9b65-61b4059bbf39",
+      "name": "Tags",
+      "description": {
+        "content": "Operations for retrieving and managing tags used to categorize questions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1283336c-bf4f-4399-951c-f8f9335d4abc",
+          "name": "Get All Tags",
+          "request": {
+            "name": "Get All Tags",
+            "description": {
+              "content": "Returns the tags on a Stack Exchange site. Tags are used to categorize questions and help users find relevant content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromdate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the minimum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "todate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the maximum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "inname",
+                  "value": "<string>",
+                  "description": "Filter tags whose name contains this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70f77c09-b72a-4f4c-833b-d3c8902de7c1",
+              "name": "A list of tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"count\": 6797,\n      \"is_moderator_only\": true,\n      \"is_required\": true,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 5332\n    },\n    {\n      \"name\": \"string\",\n      \"count\": 6041,\n      \"is_moderator_only\": true,\n      \"is_required\": false,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 3132\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 6936,\n  \"quota_remaining\": 3292,\n  \"backoff\": 8990,\n  \"total\": 114,\n  \"page\": 1291,\n  \"page_size\": 9683,\n  \"type\": \"string\",\n  \"error_id\": 8215,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "380039a7-c69a-451d-a309-6dd7f1c89f70",
+          "name": "Get Tag Info",
+          "request": {
+            "name": "Get Tag Info",
+            "description": {
+              "content": "Returns detailed information about the tags specified in the tags parameter. Tags are semicolon-delimited.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":tags",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tags",
+                  "description": "(Required) Semicolon-delimited list of tag names"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b590fd7-46c0-414f-809e-e13dc82342e1",
+              "name": "Tag information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":tags",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tags",
+                      "description": "(Required) Semicolon-delimited list of tag names"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"count\": 6797,\n      \"is_moderator_only\": true,\n      \"is_required\": true,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 5332\n    },\n    {\n      \"name\": \"string\",\n      \"count\": 6041,\n      \"is_moderator_only\": true,\n      \"is_required\": false,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 3132\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 6936,\n  \"quota_remaining\": 3292,\n  \"backoff\": 8990,\n  \"total\": 114,\n  \"page\": 1291,\n  \"page_size\": 9683,\n  \"type\": \"string\",\n  \"error_id\": 8215,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5be6db50-97d6-4937-98da-1d5196a6e561",
+          "name": "Get Related Tags",
+          "request": {
+            "name": "Get Related Tags",
+            "description": {
+              "content": "Returns the tags that are most related to the provided semicolon- delimited list of tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":tags",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tags",
+                  "description": "(Required) Semicolon-delimited list of tag names"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87908843-b2ff-45a7-a9b4-2b85889d8a69",
+              "name": "Tags related to the provided tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":tags",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tags",
+                      "description": "(Required) Semicolon-delimited list of tag names"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"count\": 6797,\n      \"is_moderator_only\": true,\n      \"is_required\": true,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 5332\n    },\n    {\n      \"name\": \"string\",\n      \"count\": 6041,\n      \"is_moderator_only\": true,\n      \"is_required\": false,\n      \"has_synonyms\": true,\n      \"last_activity_date\": 3132\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 6936,\n  \"quota_remaining\": 3292,\n  \"backoff\": 8990,\n  \"total\": 114,\n  \"page\": 1291,\n  \"page_size\": 9683,\n  \"type\": \"string\",\n  \"error_id\": 8215,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0f8e50f7-f5aa-4db9-80a0-e3271ce7deb1",
+    "name": "Stack Exchange Answers Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Stack Exchange Answers Search API",
+    "version": "2.3"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://stackoverflow.com/oauth",
+      "accessTokenUrl": "https://stackoverflow.com/oauth/access_token/json",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/search",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "intitle",
+                "value": "",
+                "type": "query",
+                "description": "Search within question titles"
+              },
+              {
+                "name": "tagged",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-delimited list of tags to filter by"
+              },
+              {
+                "name": "nottagged",
+                "value": "",
+                "type": "query",
+                "description": "Exclude questions with these semicolon-delimited tags"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Searches for questions based on a query string. Returns questions that match the search terms in the title, body, or tags. At least one of tagged, nottagged, or intitle must be specified."
+        },
+        {
+          "info": {
+            "name": "Advanced Question Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/search/advanced",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query"
+              },
+              {
+                "name": "accepted",
+                "value": "",
+                "type": "query",
+                "description": "Filter for questions that have accepted answers"
+              },
+              {
+                "name": "answers",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of answers"
+              },
+              {
+                "name": "body",
+                "value": "",
+                "type": "query",
+                "description": "Text that must appear in the question body"
+              },
+              {
+                "name": "closed",
+                "value": "",
+                "type": "query",
+                "description": "Filter for closed or open questions"
+              },
+              {
+                "name": "migrated",
+                "value": "",
+                "type": "query",
+                "description": "Filter for migrated questions"
+              },
+              {
+                "name": "notice",
+                "value": "",
+                "type": "query",
+                "description": "Filter for questions with a post notice"
+              },
+              {
+                "name": "nottagged",
+                "value": "",
+                "type": "query",
+                "description": "Exclude questions with these tags (semicolon-delimited)"
+              },
+              {
+                "name": "tagged",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-delimited list of tags to filter by"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Text that must appear in the question title"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user ID of the question owner"
+              },
+              {
+                "name": "views",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of question views"
+              },
+              {
+                "name": "wiki",
+                "value": "",
+                "type": "query",
+                "description": "Filter for community wiki questions"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Searches for questions using advanced filtering options including accepted answers, minimum score, body text, and view count filters."
+        },
+        {
+          "info": {
+            "name": "Find Similar Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stackexchange.com/2.3/similar",
+            "params": [
+              {
+                "name": "site",
+                "value": "stackoverflow",
+                "type": "query",
+                "description": "The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of the question to find similar questions for"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return (1-indexed)"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page (max 100)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The field to sort results by (varies by endpoint)"
+              },
+              {
+                "name": "tagged",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-delimited list of tags to filter by"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+              }
+            ]
+          },
+          "docs": "Returns questions that are similar to the question with the given title. Useful for finding existing related questions before asking a new one."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

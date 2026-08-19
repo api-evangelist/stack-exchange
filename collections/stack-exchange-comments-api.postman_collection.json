@@ -1,0 +1,481 @@
+{
+  "item": [
+    {
+      "id": "ca0923c0-4712-4af3-8f20-7cd6dc69357d",
+      "name": "Comments",
+      "description": {
+        "content": "Operations for retrieving and managing comments on questions and answers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e535bf87-92d3-486f-8e87-ef8d815bf1a9",
+          "name": "Get Comments on Questions",
+          "request": {
+            "name": "Get Comments on Questions",
+            "description": {
+              "content": "Returns the comments on a set of questions identified by a semicolon-delimited list of IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "questions",
+                ":ids",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of question IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50c17361-bd16-4fb5-826a-0466d7b2638a",
+              "name": "Comments on the specified questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "questions",
+                    ":ids",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of question IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"comment_id\": 538,\n      \"post_id\": 1278,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8477,\n      \"creation_date\": 4646,\n      \"owner\": {\n        \"user_id\": 8221,\n        \"display_name\": \"string\",\n        \"reputation\": 6483,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"https://hWsNgULXK.pxraBOOMIPdS3OaYuxjkrwi58iPv6HH5dn3L\",\n        \"link\": \"http://TVoUhEISpDJTTIWvchtkqHyQnIY.llzvLt7X7oT.PZplziKUqjIZFccgdbG+ET7ld\",\n        \"accept_rate\": 4747\n      },\n      \"link\": \"https://kOeOHgbcT.whzMN5J3xpSEyU2bZfUWt5OlJBVPfxieiNbwCUahb.WWMkiMAf+QblPfvhUHqF3ru,L5GjKymqVdWD2THjhJ\"\n    },\n    {\n      \"comment_id\": 3425,\n      \"post_id\": 9779,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8239,\n      \"creation_date\": 442,\n      \"owner\": {\n        \"user_id\": 133,\n        \"display_name\": \"string\",\n        \"reputation\": 5060,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"http://CZUekNhdbocvOVglk.lwepOXylgDU6wDxrBKWoEq0ATC\",\n        \"link\": \"http://jBr.bmezmEjlRYKPsf7E7Za+dbzpWKsq-zu1-g5oDfEyi7ZEM\",\n        \"accept_rate\": 5602\n      },\n      \"link\": \"http://sxEFRrHH.krrOX8,a\"\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 9347,\n  \"quota_remaining\": 5897,\n  \"backoff\": 9778,\n  \"total\": 5094,\n  \"page\": 7921,\n  \"page_size\": 4531,\n  \"type\": \"string\",\n  \"error_id\": 1211,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89207e5e-383a-47c4-a4c8-4af1b04f5642",
+          "name": "Get All Comments",
+          "request": {
+            "name": "Get All Comments",
+            "description": {
+              "content": "Returns all comments on a Stack Exchange site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromdate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the minimum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "todate",
+                  "value": "<integer>",
+                  "description": "Unix timestamp for the maximum creation date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field to sort results by (varies by endpoint)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a63f06c2-1e3b-4b14-9181-fb76686a9783",
+              "name": "A list of comments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "fromdate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "todate",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"comment_id\": 538,\n      \"post_id\": 1278,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8477,\n      \"creation_date\": 4646,\n      \"owner\": {\n        \"user_id\": 8221,\n        \"display_name\": \"string\",\n        \"reputation\": 6483,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"https://hWsNgULXK.pxraBOOMIPdS3OaYuxjkrwi58iPv6HH5dn3L\",\n        \"link\": \"http://TVoUhEISpDJTTIWvchtkqHyQnIY.llzvLt7X7oT.PZplziKUqjIZFccgdbG+ET7ld\",\n        \"accept_rate\": 4747\n      },\n      \"link\": \"https://kOeOHgbcT.whzMN5J3xpSEyU2bZfUWt5OlJBVPfxieiNbwCUahb.WWMkiMAf+QblPfvhUHqF3ru,L5GjKymqVdWD2THjhJ\"\n    },\n    {\n      \"comment_id\": 3425,\n      \"post_id\": 9779,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8239,\n      \"creation_date\": 442,\n      \"owner\": {\n        \"user_id\": 133,\n        \"display_name\": \"string\",\n        \"reputation\": 5060,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"http://CZUekNhdbocvOVglk.lwepOXylgDU6wDxrBKWoEq0ATC\",\n        \"link\": \"http://jBr.bmezmEjlRYKPsf7E7Za+dbzpWKsq-zu1-g5oDfEyi7ZEM\",\n        \"accept_rate\": 5602\n      },\n      \"link\": \"http://sxEFRrHH.krrOX8,a\"\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 9347,\n  \"quota_remaining\": 5897,\n  \"backoff\": 9778,\n  \"total\": 5094,\n  \"page\": 7921,\n  \"page_size\": 4531,\n  \"type\": \"string\",\n  \"error_id\": 1211,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae5680cf-c203-4461-85e9-f88f85351e7c",
+          "name": "Get Comments by IDs",
+          "request": {
+            "name": "Get Comments by IDs",
+            "description": {
+              "content": "Returns the comments identified by a semicolon-delimited list of IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "site",
+                  "value": "stackoverflow",
+                  "description": "(Required) The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Semicolon-delimited list of comment IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbeb083f-5f56-4ae2-be6d-3360bdbfac91",
+              "name": "Comments matching the provided IDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site",
+                      "value": "stackoverflow"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Semicolon-delimited list of comment IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"comment_id\": 538,\n      \"post_id\": 1278,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8477,\n      \"creation_date\": 4646,\n      \"owner\": {\n        \"user_id\": 8221,\n        \"display_name\": \"string\",\n        \"reputation\": 6483,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"https://hWsNgULXK.pxraBOOMIPdS3OaYuxjkrwi58iPv6HH5dn3L\",\n        \"link\": \"http://TVoUhEISpDJTTIWvchtkqHyQnIY.llzvLt7X7oT.PZplziKUqjIZFccgdbG+ET7ld\",\n        \"accept_rate\": 4747\n      },\n      \"link\": \"https://kOeOHgbcT.whzMN5J3xpSEyU2bZfUWt5OlJBVPfxieiNbwCUahb.WWMkiMAf+QblPfvhUHqF3ru,L5GjKymqVdWD2THjhJ\"\n    },\n    {\n      \"comment_id\": 3425,\n      \"post_id\": 9779,\n      \"body\": \"string\",\n      \"body_markdown\": \"string\",\n      \"score\": 8239,\n      \"creation_date\": 442,\n      \"owner\": {\n        \"user_id\": 133,\n        \"display_name\": \"string\",\n        \"reputation\": 5060,\n        \"user_type\": \"registered\",\n        \"profile_image\": \"http://CZUekNhdbocvOVglk.lwepOXylgDU6wDxrBKWoEq0ATC\",\n        \"link\": \"http://jBr.bmezmEjlRYKPsf7E7Za+dbzpWKsq-zu1-g5oDfEyi7ZEM\",\n        \"accept_rate\": 5602\n      },\n      \"link\": \"http://sxEFRrHH.krrOX8,a\"\n    }\n  ],\n  \"has_more\": false,\n  \"quota_max\": 9347,\n  \"quota_remaining\": 5897,\n  \"backoff\": 9778,\n  \"total\": 5094,\n  \"page\": 7921,\n  \"page_size\": 4531,\n  \"type\": \"string\",\n  \"error_id\": 1211,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3fffa398-6f21-46e0-9a2c-9a7bdea265b9",
+    "name": "Stack Exchange Answers Comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}

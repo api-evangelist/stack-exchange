@@ -1,0 +1,163 @@
+{
+  "item": [
+    {
+      "id": "33651e79-0958-4062-bbdf-a7b0c6598b4e",
+      "name": "Sites",
+      "description": {
+        "content": "Operations for retrieving information about Stack Exchange network sites.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8bb89477-d8fb-470b-8f2c-4ed801029503",
+          "name": "Get All Sites",
+          "request": {
+            "name": "Get All Sites",
+            "description": {
+              "content": "Returns all Stack Exchange network sites. This includes main sites, meta sites, and sites in various stages of development.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to return (1-indexed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "30",
+                  "description": "Number of results to return per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9ec5d5c-5b24-44e2-adcd-627962cc7247",
+              "name": "A list of Stack Exchange network sites",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"site_type\": \"main_site\",\n      \"name\": \"string\",\n      \"logo_url\": \"https://NZRuxGAQVURVfAOXdUMmKoCLDnDQ.smwzJw\",\n      \"api_site_parameter\": \"string\",\n      \"site_url\": \"https://HGveHDEUtzaaOMrDZRmydKdLKi.ogzqsnC4ns4t4vg8Xf0bkDPRK7tnRkrjaY++Y\",\n      \"audience\": \"string\",\n      \"icon_url\": \"http://wVthltzEJojYXBHgoUJlUpKTxeQqt.tsfv.8JO0rxH\",\n      \"high_resolution_icon_url\": \"http://HamXNJWqXbCZwvVmBBj.kizkk1,YRNnvfosAWTXY-3eVObIdZp1WpvWH,VSWh89hKJ5gUGUkUN7l03KcNA7V4Vss\",\n      \"site_state\": \"normal\",\n      \"launch_date\": 4930,\n      \"closed_beta_date\": 7925,\n      \"open_beta_date\": 6527,\n      \"favicon_url\": \"https://XfkIvFUU.prP8vntFuXxR\"\n    },\n    {\n      \"site_type\": \"main_site\",\n      \"name\": \"string\",\n      \"logo_url\": \"http://XsuyI.vbbet51wgK.CCTaLn1FMPVRCPJe+b9tzyTTJb8rSeOSs,4u6EkgL,6eJx60E4IQxj6uu6hkp2Zi\",\n      \"api_site_parameter\": \"string\",\n      \"site_url\": \"http://CDtrQxmjcuuYNLkbNf.qkulrLv1gfCWl\",\n      \"audience\": \"string\",\n      \"icon_url\": \"https://fLVAYpWdJUGFMgNuXxyVbkqWtxyrZ.sxsfo0asRz5SXXYpoUE1\",\n      \"high_resolution_icon_url\": \"https://k.otx9xpytfnKJ3Ao-N2QetMmdv1fzAIzYgyko1tqsDGlMAGQa2DY5+TA\",\n      \"site_state\": \"normal\",\n      \"launch_date\": 1630,\n      \"closed_beta_date\": 9335,\n      \"open_beta_date\": 6701,\n      \"favicon_url\": \"http://oYtUvOg.awyZa9JDz30ij824EQNdXLwTee2crByePkUre+Td\"\n    }\n  ],\n  \"has_more\": true,\n  \"quota_max\": 3149,\n  \"quota_remaining\": 7658,\n  \"backoff\": 8739,\n  \"total\": 2728,\n  \"page\": 7612,\n  \"page_size\": 9546,\n  \"type\": \"string\",\n  \"error_id\": 4033,\n  \"error_message\": \"string\",\n  \"error_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stackexchange.com/2.3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "no_expiry write_access private_info"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://stackoverflow.com/oauth/access_token/json"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://stackoverflow.com/oauth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "19237f03-5dd0-495f-ad98-7efd0ae59064",
+    "name": "Stack Exchange Answers Sites API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.\n\nContact Support:\n Name: Stack Exchange API Support\n Email: team+api@stackexchange.com",
+      "type": "text/plain"
+    }
+  }
+}
