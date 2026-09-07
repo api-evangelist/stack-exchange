@@ -23,6 +23,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "stack-exchange-answers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-badges-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-comments-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-questions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-sites-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-tags-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "stack-exchange-users-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Stack Exchange Answers Badges API
   description: The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.
@@ -69,16 +69,12 @@ paths:
                 $ref: '#/components/schemas/BadgesResponse'
 components:
   parameters:
-    order:
-      name: order
+    sort:
+      name: sort
       in: query
       schema:
         type: string
-        enum:
-        - asc
-        - desc
-        default: desc
-      description: Sort order for results
+      description: The field to sort results by (varies by endpoint)
     site:
       name: site
       in: query
@@ -111,22 +107,17 @@ components:
         maximum: 100
         default: 30
       description: Number of results to return per page (max 100)
-    sort:
-      name: sort
+    order:
+      name: order
       in: query
       schema:
         type: string
-      description: The field to sort results by (varies by endpoint)
+        enum:
+        - asc
+        - desc
+        default: desc
+      description: Sort order for results
   schemas:
-    BadgesResponse:
-      allOf:
-      - $ref: '#/components/schemas/Wrapper'
-      - type: object
-        properties:
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Badge'
     Wrapper:
       type: object
       description: Standard Stack Exchange API response wrapper containing items, pagination info, and backoff/quota information.
@@ -202,6 +193,15 @@ components:
           type: string
           format: uri
           description: Link to the badge description page
+    BadgesResponse:
+      allOf:
+      - $ref: '#/components/schemas/Wrapper'
+      - type: object
+        properties:
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Badge'
   securitySchemes:
     oauth2:
       type: oauth2

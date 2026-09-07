@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Stack Exchange Answers Search API
   description: The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.
@@ -163,6 +163,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/QuestionsResponse'
 components:
+  parameters:
+    sort:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: The field to sort results by (varies by endpoint)
+    order:
+      name: order
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: desc
+      description: Sort order for results
+    site:
+      name: site
+      in: query
+      required: true
+      schema:
+        type: string
+        default: stackoverflow
+      description: The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser.
+      example: stackoverflow
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: The page number to return (1-indexed)
+    tagged:
+      name: tagged
+      in: query
+      schema:
+        type: string
+      description: Semicolon-delimited list of tags to filter by
+    pagesize:
+      name: pagesize
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 100
+        default: 30
+      description: Number of results to return per page (max 100)
+    filter:
+      name: filter
+      in: query
+      schema:
+        type: string
+      description: A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters.
   schemas:
     Question:
       type: object
@@ -227,27 +282,6 @@ components:
         bounty_closes_date:
           type: integer
           description: Unix timestamp when the bounty closes
-    QuestionsResponse:
-      allOf:
-      - $ref: '#/components/schemas/Wrapper'
-      - type: object
-        properties:
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Question'
-    ErrorResponse:
-      type: object
-      properties:
-        error_id:
-          type: integer
-          description: Numeric error identifier
-        error_message:
-          type: string
-          description: Human-readable error description
-        error_name:
-          type: string
-          description: Machine-readable error name
     ShallowUser:
       type: object
       description: A shallow representation of a Stack Exchange user
@@ -323,61 +357,27 @@ components:
         error_name:
           type: string
           description: Machine-readable error name
-  parameters:
-    order:
-      name: order
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: desc
-      description: Sort order for results
-    site:
-      name: site
-      in: query
-      required: true
-      schema:
-        type: string
-        default: stackoverflow
-      description: The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser.
-      example: stackoverflow
-    filter:
-      name: filter
-      in: query
-      schema:
-        type: string
-      description: A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters.
-    page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-      description: The page number to return (1-indexed)
-    pagesize:
-      name: pagesize
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 100
-        default: 30
-      description: Number of results to return per page (max 100)
-    sort:
-      name: sort
-      in: query
-      schema:
-        type: string
-      description: The field to sort results by (varies by endpoint)
-    tagged:
-      name: tagged
-      in: query
-      schema:
-        type: string
-      description: Semicolon-delimited list of tags to filter by
+    QuestionsResponse:
+      allOf:
+      - $ref: '#/components/schemas/Wrapper'
+      - type: object
+        properties:
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Question'
+    ErrorResponse:
+      type: object
+      properties:
+        error_id:
+          type: integer
+          description: Numeric error identifier
+        error_message:
+          type: string
+          description: Human-readable error description
+        error_name:
+          type: string
+          description: Machine-readable error name
   responses:
     BadRequest:
       description: Bad request due to missing or invalid parameters

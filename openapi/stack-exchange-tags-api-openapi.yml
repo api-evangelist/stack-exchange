@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Stack Exchange Answers Tags API
   description: The Stack Exchange API v2.3 provides programmatic access to the Stack Exchange network of Q&A sites, including Stack Overflow, Server Fault, Super User, and hundreds of other communities. The API supports reading and writing questions, answers, comments, tags, users, and other content. Authentication is via OAuth 2.0 with access tokens. All responses are JSON-encoded and support GZIP compression.
@@ -95,6 +95,41 @@ paths:
                 $ref: '#/components/schemas/TagsResponse'
 components:
   parameters:
+    sort:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: The field to sort results by (varies by endpoint)
+    todate:
+      name: todate
+      in: query
+      schema:
+        type: integer
+      description: Unix timestamp for the maximum creation date
+    site:
+      name: site
+      in: query
+      required: true
+      schema:
+        type: string
+        default: stackoverflow
+      description: The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser.
+      example: stackoverflow
+    fromdate:
+      name: fromdate
+      in: query
+      schema:
+        type: integer
+      description: Unix timestamp for the minimum creation date
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: The page number to return (1-indexed)
     order:
       name: order
       in: query
@@ -105,41 +140,6 @@ components:
         - desc
         default: desc
       description: Sort order for results
-    site:
-      name: site
-      in: query
-      required: true
-      schema:
-        type: string
-        default: stackoverflow
-      description: The Stack Exchange site to query. Use the API name of the site, e.g., stackoverflow, serverfault, superuser.
-      example: stackoverflow
-    todate:
-      name: todate
-      in: query
-      schema:
-        type: integer
-      description: Unix timestamp for the maximum creation date
-    fromdate:
-      name: fromdate
-      in: query
-      schema:
-        type: integer
-      description: Unix timestamp for the minimum creation date
-    filter:
-      name: filter
-      in: query
-      schema:
-        type: string
-      description: A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters.
-    page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-      description: The page number to return (1-indexed)
     pagesize:
       name: pagesize
       in: query
@@ -149,35 +149,13 @@ components:
         maximum: 100
         default: 30
       description: Number of results to return per page (max 100)
-    sort:
-      name: sort
+    filter:
+      name: filter
       in: query
       schema:
         type: string
-      description: The field to sort results by (varies by endpoint)
+      description: A filter to control which fields are returned in the response. Use the /filter endpoint to create custom filters.
   schemas:
-    Tag:
-      type: object
-      description: A tag used to categorize questions on a Stack Exchange site
-      properties:
-        name:
-          type: string
-          description: The tag name
-        count:
-          type: integer
-          description: Number of questions tagged with this tag
-        is_moderator_only:
-          type: boolean
-          description: Whether only moderators can apply this tag
-        is_required:
-          type: boolean
-          description: Whether this tag is required on questions
-        has_synonyms:
-          type: boolean
-          description: Whether this tag has synonyms
-        last_activity_date:
-          type: integer
-          description: Unix timestamp of last activity on this tag
     TagsResponse:
       allOf:
       - $ref: '#/components/schemas/Wrapper'
@@ -229,6 +207,28 @@ components:
         error_name:
           type: string
           description: Machine-readable error name
+    Tag:
+      type: object
+      description: A tag used to categorize questions on a Stack Exchange site
+      properties:
+        name:
+          type: string
+          description: The tag name
+        count:
+          type: integer
+          description: Number of questions tagged with this tag
+        is_moderator_only:
+          type: boolean
+          description: Whether only moderators can apply this tag
+        is_required:
+          type: boolean
+          description: Whether this tag is required on questions
+        has_synonyms:
+          type: boolean
+          description: Whether this tag has synonyms
+        last_activity_date:
+          type: integer
+          description: Unix timestamp of last activity on this tag
   securitySchemes:
     oauth2:
       type: oauth2
